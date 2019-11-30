@@ -29,11 +29,11 @@ class Sight
     return results.map { |sight| Sight.new(sight) }
   end
 
-  def self.find(id)
+  def self.find_by_id(id)
     sql = "SELECT * FROM sights
     WHERE id = $1"
     values = [id]
-    results = SqlRunner.run( sql, values )
+    results = SqlRunner.run(sql, values)
     return Sight.new(results.first)
   end
 
@@ -41,7 +41,7 @@ class Sight
     sql = "SELECT * FROM sights
     WHERE status = $1"
     values = [status]
-    results = SqlRunner.run( sql, values )
+    results = SqlRunner.run(sql, values)
    return results.map { |sight| Sight.new(sight) }
   end
 
