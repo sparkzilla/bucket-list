@@ -1,0 +1,12 @@
+<h1>All Sights</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for user in @users %>
+  <tr>
+    <td><a href="/Sights/<%= user.id %>"><%= user.first_name %></a></td>
+  </tr>
+  <% end %>
+</table>
