@@ -15,7 +15,7 @@ CREATE TABLE sights (
 
 CREATE TABLE visits (
   id SERIAL8 PRIMARY KEY,
-  user_id INT REFERENCES users(id),
-  sight_id INT REFERENCES sights(id),
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
+  sight_id INT REFERENCES sights(id) ON DELETE CASCADE,
   status VARCHAR
 );
