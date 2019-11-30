@@ -17,7 +17,7 @@ sight1 = Sight.new({
   'name' => 'Tokyo Tower',
   'user_id' => user1.id
 })
-#sight1.save()
+sight1.save()
 
 # city1 = City.new({
 #   'name' => 'Tokyo',
