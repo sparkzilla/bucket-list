@@ -1,6 +1,6 @@
 require('minitest/autorun')
 require('minitest/reporters')
-require_relative('../models/user')
+require_relative('../models/users')
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
