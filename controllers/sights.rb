@@ -4,6 +4,15 @@ require_relative('../db/seeds')
 require_relative( '../models/sights' )
 also_reload( '../models/*' )
 
+get '/sights' do
+  @sights = Sight.all()
+  erb (:"sights/index")
+end
+
+get '/sights/new' do
+  @sights = Sight.all
+  erb (:"/sights/new")
+end
 
 get '/sights/:id' do
   @sight = Sight.find_by_id(params['id'].to_i)
