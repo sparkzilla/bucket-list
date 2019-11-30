@@ -10,8 +10,12 @@ get '/sights/:status' do
   erb ( :"sights/index" )
 end
 
-
 get '/sights' do
   @sights = Sight.all()
-  erb ( :"sights/index" )
+  erb (:"sights/index")
+end
+
+get 'sights/:id' do
+  @sights = Sight.find_by_id(params['id'].to_i)
+  erb(:"sights/show")
 end
