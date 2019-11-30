@@ -10,11 +10,12 @@ CREATE TABLE users (
 
 CREATE TABLE sights (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255),
+  name VARCHAR(255)
 );
 
 CREATE TABLE visits (
   id SERIAL8 PRIMARY KEY,
   user_id INT REFERENCES users(id),
-  sight_id INT REFERENCES sights(id)
+  sight_id INT REFERENCES sights(id),
+  status VARCHAR
 );
