@@ -36,5 +36,5 @@ sight5 = Sight.new({
 sight5.save()
 
 
-binding.pry
-nil
+# binding.pry
+# nil
