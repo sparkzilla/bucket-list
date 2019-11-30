@@ -1,3 +1,4 @@
+DROP TABLE visits;
 DROP TABLE sights;
 DROP TABLE users;
 
@@ -10,5 +11,10 @@ CREATE TABLE users (
 CREATE TABLE sights (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
-  user_id INT REFERENCES users(id)
+);
+
+CREATE TABLE visits (
+  id SERIAL8 PRIMARY KEY,
+  user_id INT REFERENCES users(id),
+  sight_id INT REFERENCES sights(id)
 );
