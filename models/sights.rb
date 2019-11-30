@@ -1,5 +1,4 @@
 require_relative('../db/sql_runner')
-require_relative('users')
 
 class Sight
 
@@ -21,6 +20,12 @@ class Sight
   def self.delete_all
     sql = "DELETE FROM sights"
     SqlRunner.run(sql)
+  end
+
+  def self.all
+    sql = "SELECT * FROM sights"
+    results = SqlRunner.run(sql)
+    return results.map { |sight| Sight.new(sight) }
   end
 
 end

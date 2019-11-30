@@ -31,6 +31,11 @@ sight3 = Sight.new({
 })
 sight3.save()
 
+sight4 = Sight.new({
+  'name' => 'Empire State Building',
+})
+sight4.save()
+
 visit1 = Visit.new({
   'user_id' => user1.id,
   'sight_id' => sight1.id,
