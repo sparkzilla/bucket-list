@@ -5,7 +5,7 @@ require_relative('../models/sights')
 # require_relative('models/country')
 
 Sight.delete_all()
-#User.delete_all()
+User.delete_all()
 
 user1 = User.new(
   {
