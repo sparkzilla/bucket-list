@@ -23,3 +23,14 @@ get '/sights/status/:status' do
   @sights = Sight.find_by_status(params['status'])
   erb ( :"sights/index" )
 end
+
+post '/sights' do
+  sight = Sight.new(params)
+  sight.save
+  redirect to("/sights")
+end
+
+post '/sights/:id/delete' do
+  Sight.delete_by_id(params['id'].to_i)
+  redirect to ("/sights")
+end

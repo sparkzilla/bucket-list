@@ -3,3 +3,9 @@
 <p><%= @sight.name %></p>
 
 <p><%= @sight.status %></p>
+
+<p>
+    <form action="/sights/<%= @sight.id %>/delete" method="POST">
+      <input class="btn btn--danger" type="submit" value="delete" />
+    </form>
+</p>

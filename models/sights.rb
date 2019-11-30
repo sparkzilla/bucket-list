@@ -42,7 +42,14 @@ class Sight
     WHERE status = $1"
     values = [status]
     results = SqlRunner.run(sql, values)
-   return results.map { |sight| Sight.new(sight) }
+    return results.map { |sight| Sight.new(sight) }
+  end
+
+  def self.delete_by_id(id)
+    sql = "DELETE FROM sights
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
   end
 
 end
