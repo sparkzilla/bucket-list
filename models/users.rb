@@ -23,6 +23,12 @@ class User
     SqlRunner.run(sql)
   end
 
+  def self.all
+    sql = "SELECT * FROM users"
+    results = SqlRunner.run(sql)
+    return results.map { |user| User.new(user) }
+  end
+
   def sights_all
     sql ="SELECT sights.*
     FROM sights
