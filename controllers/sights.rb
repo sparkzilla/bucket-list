@@ -8,3 +8,9 @@ get '/sights' do
   @sights = Sight.all()
   erb ( :"sights/index" )
 end
+
+get ':id/sights do
+user = params['id'].to_i
+  @sights = User.sights_all
+  erb ( :"sights/index" )
+end
