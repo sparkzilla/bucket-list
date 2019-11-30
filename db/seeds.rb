@@ -30,7 +30,7 @@ sight4 = Sight.new({
 sight4.save()
 
 sight5 = Sight.new({
-  'name' => '',
+  'name' => 'The Great Wall',
   'status' => 'bucket'
 })
 sight5.save()
