@@ -23,8 +23,3 @@ get '/sights/status/:status' do
   @sights = Sight.find_by_status(params['status'])
   erb ( :"sights/index" )
 end
-
-get '/sights' do
-  @sights = Sight.all()
-  erb (:"sights/index")
-end
