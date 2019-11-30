@@ -23,4 +23,16 @@ class User
     SqlRunner.run(sql)
   end
 
+  def sights
+    sql ="SELECT sights.*
+    FROM sights
+    INNER JOIN visits
+    ON visits.sight_id = sights.id
+    WHERE user_id = $1;"
+    values = [@id]
+    sights = SqlRunner.run(sql, values)
+    result = sights.map { |sight| Sight.new(sight) }
+    return result
+  end
+
 end

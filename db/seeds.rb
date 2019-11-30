@@ -7,6 +7,7 @@ require_relative('../models/visits')
 
 Sight.delete_all()
 User.delete_all()
+Visit.delete_all()
 
 user1 = User.new({
     'first_name' => "Bob",
