@@ -1,6 +1,6 @@
 require('minitest/autorun')
 require('minitest/reporters')
-require_relative('../models/customer_id')
+require_relative('../models/user')
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
@@ -13,7 +13,7 @@ class UserTest < MiniTest::Test
     }
 
     new_user = User.new(details)
-    assert_equal('Devlin', new_user.first_name)
+    assert_equal('Devlin', new_user.last_name)
   end
 
 end
