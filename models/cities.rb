@@ -53,4 +53,21 @@ class City
     return sights.map{|city| Sight.new(city)}
   end
 
+  #if city exists return id
+
+  def self.find_by_name_return_id(name)
+    begin
+      sql = "SELECT * FROM cities
+      WHERE name = $1"
+      values = [name]
+      results = SqlRunner.run(sql, values)
+      x = results[0]['id'].to_i
+    rescue
+      return false
+    else
+      return x
+    end
+  end
+
+
 end
