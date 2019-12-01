@@ -1,5 +1,6 @@
 require('pry')
 require_relative('../models/sights')
+require_relative('../models/cities')
 # require_relative('models/city')
 # require_relative('models/country')
 
@@ -30,11 +31,34 @@ sight4 = Sight.new({
 sight4.save()
 
 sight5 = Sight.new({
-  'name' => 'The Great Wall',
+  'name' => 'Terracotta Warriors',
   'status' => 'bucket'
 })
 sight5.save()
 
+city1 = City.new({
+  'name' => 'Tokyo'
+  })
+city1.save()
 
-# binding.pry
-# nil
+city2 = City.new({
+  'name' => 'Cairo'
+  })
+city2.save()
+
+city3 = City.new({
+  'name' => 'Paris'
+  })
+city3.save()
+
+city4 = City.new({
+  'name' => 'Xian'
+  })
+city4.save()
+
+
+
+
+
+binding.pry
+nil
