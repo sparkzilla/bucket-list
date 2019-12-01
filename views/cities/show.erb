@@ -1,0 +1,15 @@
+<h1><%= @city.name %></h1>
+
+<% for sight in @city.sights %>
+<tr>
+  <td><p><%= sight.name %></p></td>
+</tr>
+
+<% end %>
+
+
+<p>
+    <form action="/cities/<%= @city.id %>/delete" method="POST">
+      <input class="btn btn--danger" type="submit" value="delete" />
+    </form>
+</p>

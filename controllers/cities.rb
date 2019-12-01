@@ -15,15 +15,9 @@ get '/cities/new' do
 end
 
 get '/cities/:id' do
-  @cities = City.find_by_id(params['id'].to_i)
+  @city = City.find_by_id(params['id'].to_i)
   erb(:"cities/show")
 end
-
-# post '/cities' do
-#   city = City.new(params)
-#   sight.save
-#   redirect to("/sights")
-# end
 
 post '/cities/:id/delete' do
   City.delete_by_id(params['id'].to_i)
