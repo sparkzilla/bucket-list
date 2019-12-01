@@ -1,6 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative('controllers/sights')
+require_relative('controllers/cities')
 
 get '/' do
   erb( :index )
