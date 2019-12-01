@@ -26,8 +26,6 @@ get '/sights/status/:status' do
   erb ( :"sights/index" )
 end
 
-##{params[:int1].to_i + params[:int2].to_i}"
-
 post '/sights' do
   #get the city param
   #save city
@@ -54,11 +52,6 @@ post '/sights' do
   sight.save
   redirect to("/sights")
 end
-
-  # sight = Sight.new(params)
-  # city.save
-  # sight.save
-  # redirect to("/sights")
 
 post '/sights/:id/delete' do
   Sight.delete_by_id(params['id'].to_i)
