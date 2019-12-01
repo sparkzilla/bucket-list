@@ -25,7 +25,7 @@ class Sight
   end
 
   def self.all
-    sql = "SELECT * FROM sights"
+    sql = "SELECT * FROM sights ORDER BY city_id ASC"
     results = SqlRunner.run(sql)
     return results.map { |sight| Sight.new(sight) }
   end
