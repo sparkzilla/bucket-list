@@ -30,6 +30,14 @@ class City
     return results.map { |city| City.new(city) }
   end
 
+  def update()
+    sql = "UPDATE cities
+    SET name = $1
+    WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run( sql, values )
+  end
+
   def self.find_by_id(id)
     sql = "SELECT * FROM cities
     WHERE id = $1"
