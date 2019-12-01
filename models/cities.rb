@@ -32,9 +32,9 @@ class City
 
   def update()
     sql = "UPDATE cities
-    SET name = $1
-    WHERE id = $2"
-    values = [@name, @id]
+    SET (name, country_id) = ($1, $2)
+    WHERE id = $3"
+    values = [@name, @country_id, @id]
     SqlRunner.run( sql, values )
   end
 
