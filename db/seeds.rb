@@ -4,7 +4,7 @@ require_relative('../models/cities')
 # require_relative('models/country')
 
 Sight.delete_all()
-
+City.delete_all()
 
 city1 = City.new({
   'name' => 'Tokyo'
