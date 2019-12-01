@@ -22,6 +22,25 @@ class City
     SqlRunner.run(sql)
   end
 
+  def self.all
+    sql = "SELECT * FROM cities"
+    results = SqlRunner.run(sql)
+    return results.map { |city| City.new(city) }
+  end
 
+  def self.find_by_id(id)
+    sql = "SELECT * FROM cities
+    WHERE id = $1"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return City.new(results.first)
+  end
+
+  def self.delete_by_id(id)
+    sql = "DELETE FROM cities
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
 
 end

@@ -10,5 +10,5 @@ CREATE TABLE sights (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
   status VARCHAR(255),
-  city_id INT REFERENCES cities(id)
+  city_id INT REFERENCES cities(id) ON DELETE CASCADE
 );
