@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require_relative('sights')
 
 class City
 
@@ -41,6 +42,15 @@ class City
     WHERE id = $1"
     values = [id]
     SqlRunner.run(sql, values)
+  end
+
+  #Find all sights in a city
+
+  def sights()
+    sql="SELECT * FROM sights WHERE city_id = $1"
+    values = [@id]
+    sights = SqlRunner.run(sql, values)
+    return sights.map{|city| Sight.new(city)}
   end
 
 end

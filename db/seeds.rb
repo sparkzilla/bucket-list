@@ -54,6 +54,13 @@ sight4 = Sight.new({
 })
 sight4.save()
 
+sight5 = Sight.new({
+  'name' => 'Skytree',
+  'status' => 'bucket',
+  'city_id' => city1.id
+})
+sight5.save()
+
 
 
 
