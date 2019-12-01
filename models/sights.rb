@@ -53,4 +53,14 @@ class Sight
     SqlRunner.run(sql, values)
   end
 
+  #Find the city a sight is in
+
+  def city()
+      sql = "SELECT * FROM cities
+      WHERE id = $1"
+      values = [@city_id]
+      city = SqlRunner.run(sql, values)
+      @city_name = city.first()['name']
+  end
+
 end
