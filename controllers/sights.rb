@@ -6,7 +6,7 @@ require_relative( '../models/cities' )
 also_reload( '../models/*' )
 
 get '/sights' do
-  @sights = Sight.all()
+  @sights = Sight.all
   erb (:"sights/index")
 end
 
@@ -34,10 +34,17 @@ post '/sights' do
   #create a new hash with name, status, city_id
   #save sight
 
-  city_param = params[:city]
-  new_city = {"name" => "#{city_param}"}
-  city = City.new(new_city)
-  city.save
+  city_param = params['city']
+
+
+  #if city exixists, return city id
+    city_id = City.find_by_name_return_id(city_param)
+    if (city_id == false)
+      new_city = {"name" => "#{city_param}"}
+      city = City.new(new_city)
+      city.save
+      city_id = city.id.to_s
+    end
 
   status_param = params[:status]
   sight_name_param = params[:name]
@@ -45,8 +52,10 @@ post '/sights' do
   new_sight = {
     "name" => "#{sight_name_param}",
     "status" => "#{status_param}",
-    "city_id" => city.id.to_s
+    "city_id" => city_id
   }
+
+  p new_sight.to_s
 
   sight = Sight.new(new_sight)
   sight.save
