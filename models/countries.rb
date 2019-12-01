@@ -69,15 +69,5 @@ class Country
     end
   end
 
-  #Find the country a city is in, as an object
-
-  def city()
-      sql = "SELECT * FROM countries
-      WHERE id = $1"
-      values = [@country_id]
-      result = SqlRunner.run(sql, values)
-      return Country.new(result.first)
-  end
-
 
 end
