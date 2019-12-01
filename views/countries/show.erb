@@ -1,0 +1,15 @@
+<h1><%= @country.name %></h1>
+
+<% for city in @country.cities %>
+<tr>
+  <td><p><%= city.name %></p></td>
+</tr>
+
+<% end %>
+
+
+<p>
+    <form action="/coiuntries<%= @country.id %>/delete" method="POST">
+      <input class="btn btn--danger" type="submit" value="delete" />
+    </form>
+</p>
