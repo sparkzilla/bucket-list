@@ -3,17 +3,18 @@ require_relative('sights')
 
 class City
 
-  attr_accessor :name
+  attr_accessor :name, :country_id
   attr_reader :id
 
   def initialize(options)
       @id = options['id'].to_i() if options['id']
       @name = options['name']
+      @country_id = options['country_id'].to_i()
   end
 
   def save()
-    sql = "INSERT INTO cities (name) VALUES ($1) RETURNING id"
-    values = [@name]
+    sql = "INSERT INTO cities (name, country_id) VALUES ($1, $2) RETURNING id"
+    values = [@name, @country_id]
     result = SqlRunner.run(sql, values)
     @id = result[0]['id'].to_i()
   end

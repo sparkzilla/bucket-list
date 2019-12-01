@@ -1,30 +1,63 @@
 require('pry')
 require_relative('../models/sights')
 require_relative('../models/cities')
-# require_relative('models/country')
+require_relative('../models/countries')
 
 Sight.delete_all()
 City.delete_all()
+Country.delete_all()
+
+
+country1 = Country.new({
+  'name' => 'Japan',
+})
+country1.save()
+
+country2 = Country.new({
+  'name' => 'France',
+})
+country2.save()
+
+country3 = Country.new({
+  'name' => 'Egypt',
+})
+country3.save()
+
+country4 = Country.new({
+  'name' => 'China',
+})
+country4.save()
+
 
 city1 = City.new({
-  'name' => 'Tokyo'
+  'name' => 'Tokyo',
+   'country_id' => country1.id
   })
 city1.save()
 
 city2 = City.new({
-  'name' => 'Paris'
+  'name' => 'Paris',
+  'country_id' => country2.id
   })
 city2.save()
 
 city3 = City.new({
-  'name' => 'Cairo'
+  'name' => 'Cairo',
+  'country_id' => country3.id
   })
 city3.save()
 
 city4 = City.new({
-  'name' => 'Xian'
+  'name' => 'Xian',
+  'country_id' => country4.id
   })
 city4.save()
+
+city5 = City.new({
+  'name' => 'Versailles',
+  'country_id' => country2.id
+  })
+city5.save()
 
 sight1 = Sight.new({
   'name' => 'Tokyo Tower',
@@ -61,11 +94,12 @@ sight5 = Sight.new({
 })
 sight5.save()
 
+sight6 = Sight.new({
+  'name' => 'Palace of Versailles',
+  'status' => 'bucket',
+  'city_id' => city5.id
+})
+sight6.save()
 
-
-
-
-
-
-# binding.pry
-# nil
+binding.pry
+nil
