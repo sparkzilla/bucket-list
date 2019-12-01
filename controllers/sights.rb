@@ -34,17 +34,32 @@ post '/sights' do
   #create a new hash with name, status, city_id
   #save sight
 
+  #if country exixists, return country id
+
+  country_param = params['country']
+  country_id = Country.find_by_name_return_id(country_param)
+  if (country_id == false)
+    new_country = {"name" => "#{country_param}"}
+    country = Country.new(new_country)
+    country.save
+    country_id = country.id.to_s
+  end
+
+  #if city exixists, return city_id
+
+  p country_id.to_s
+
   city_param = params['city']
-
-
-  #if city exixists, return city id
-    city_id = City.find_by_name_return_id(city_param)
-    if (city_id == false)
-      new_city = {"name" => "#{city_param}"}
-      city = City.new(new_city)
-      city.save
-      city_id = city.id.to_s
-    end
+  city_id = City.find_by_name_return_id(city_param)
+  if (city_id == false)
+    new_city = {
+      "name" => "#{city_param}",
+      "country_id" => country_id
+    }
+    city = City.new(new_city)
+    city.save
+    city_id = city.id.to_s
+  end
 
   status_param = params[:status]
   sight_name_param = params[:name]
