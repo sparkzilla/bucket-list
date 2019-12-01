@@ -67,5 +67,5 @@ sight5.save()
 
 
 
-binding.pry
-nil
+# binding.pry
+# nil

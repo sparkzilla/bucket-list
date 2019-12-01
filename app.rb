@@ -7,7 +7,7 @@ get '/' do
 end
 
 # 404 Error!
-not_found do
-  status 404
-  erb (:oops)
-end
+# not_found do
+#   status 404
+#   erb (:oops)
+# end
