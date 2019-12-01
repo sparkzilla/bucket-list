@@ -101,5 +101,5 @@ sight6 = Sight.new({
 })
 sight6.save()
 
-binding.pry
-nil
+# binding.pry
+# nil
