@@ -61,11 +61,9 @@ class City
       WHERE name = $1"
       values = [name]
       results = SqlRunner.run(sql, values)
-      x = results[0]['id'].to_i
+      return results[0]['id'].to_i
     rescue
       return false
-    else
-      return x
     end
   end
 
