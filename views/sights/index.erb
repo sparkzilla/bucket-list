@@ -2,17 +2,32 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>All the sights</th>
   </tr>
   <% for sight in @sights %>
   <tr>
     <td><a href="/sights/<%= sight.id %>"><%= sight.name %></a></td>
-  </tr>
-  <tr>
     <td><a href="/cities/<%= sight.city.id %>"><%= sight.city.name %></a></td>
-  </tr>
-  <tr>
     <td><a href="/countries/<%= sight.city.country.id %>"><%= sight.city.country.name %></a></td>
+
+    <% if sight.status == "visited" %>
+    <td><a href="/sights/status/visited"><%= sight.status %></a></td>
+    <% else %>
+    <td><a href="/sights/status/bucket"><%= sight.status %></a></td>
+    <% end %>
+
+  <td>  <select name="status" id="status">
+      <% if sight.status == "visited" %>
+      <option selected="selected" value="visited">Visited</option>
+      <option value="bucket">Bucket List</option>
+      <% else %>
+      <option selected="selected" value="bucket">Bucket List</option>
+      <option value="visited">Visited</option>
+      <% end %>
+    </select></td>
+
+
+
   </tr>
   <% end %>
 </table>
