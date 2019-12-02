@@ -1,9 +1,6 @@
 <h1>All Sights</h1>
 
 <table>
-  <tr>
-    <th>All the sights</th>
-  </tr>
   <% for sight in @sights %>
   <tr>
     <td><a href="/sights/<%= sight.id %>"><%= sight.name %></a></td>
