@@ -18,13 +18,6 @@
     <td><a href="/sights/<%= sight.id %>"><%= sight.name %></a></td>
     <td><a href="/cities/<%= sight.city.id %>"><%= sight.city.name %></a></td>
     <td><a href="/countries/<%= sight.city.country.id %>"><%= sight.city.country.name %></a></td>
-
-    <% if sight.status == "visited" %>
-    <td><a href="/sights/status/visited"><%= sight.status %></a></td>
-    <% else %>
-    <td><a href="/sights/status/bucket"><%= sight.status %></a></td>
-    <% end %>
-
     <td>
 
       <% if sight.status == "visited" %>
