@@ -2,20 +2,21 @@ body {
   background: #BDD5EA url('/images/background.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
-  color: papayawhip;
-  font-family: 'Merriweather', serif;
+  color: #222222;
+  font-family: 'Open Sans', san-serif;
   padding: 0px;
-  margin: 0px;
+  margin: auto 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Special Elite', cursive;
+  font-family: 'Lobster', cursive;
+  font-weight:200;
   margin: 0px;
   padding: 0px;
 }
 
 h1 {
-  font-size: 1.8em;
+  font-size: 2em;
   color: darkred;
   margin-bottom: 20px;
 }
@@ -29,6 +30,26 @@ a:hover, a:active, a:focus {
   color: #c6e2ff;
 }
 
+.header-left{
+  float:left;
+}
+
+.header-right{
+  float:right;
+}
+
+p {
+  padding:0;
+  margin:5px 10px;
+}
+
+.logo p {
+  font-size:48px;
+  font-family: 'Lobster', cursive;
+  font-weight:200;
+  color: darkred;
+}
+
 nav {
   padding: 0px;
   margin: 0px;
@@ -36,7 +57,9 @@ nav {
 }
 
 nav ul li {
-  margin-bottom: 15px;
+  display: inline-block;
+  margin-bottom: 5px;
+  padding: 0 10px;
   text-transform: uppercase;
 }
 
@@ -59,6 +82,5 @@ main {
 }
 
 #content {
-  border-left: 1px solid darkred;
-  padding-left: 25px;
+  padding-left: 0px;
 }
