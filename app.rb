@@ -5,7 +5,7 @@ require_relative('controllers/cities')
 require_relative('controllers/countries')
 
 get '/' do
-  redirect to ("/sights")
+  erb( :index )
 end
 
 # 404 Error!

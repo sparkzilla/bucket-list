@@ -11,6 +11,40 @@
   <img src ="<%= @map_url %><%= @url %>">
 </div>
 
+<div class = "row">
+  <div class = "left-panel">
+
+  <h1>Add a place</h1>
+
+  <form action="/sights" method="post">
+    <div class = "form-field">
+      <label for="name">Site Name:</label>
+      <input type="text" name="name" id="name">
+    </div>
+    <div class = "form-field">
+      <label for="city">City</label>
+      <input type="text" name="city" id="city">
+    </div>
+    <div class = "form-field">
+      <label for="country">Country</label>
+      <input type="text" name="country" id="country">
+    </div>
+    <div class = "form-field">
+      <select name="status" id="status">
+        <option value="visited">Visited</option>
+        <option value="bucket">On my bucket list</option>
+      </select>
+    </div>
+    <div class = "form-field">
+    <input class="btn btn--action" type='submit' value="Submit">
+    </div>
+  </form>
+  </div>
+  <div class = "right-panel"
+
+
+
+
 <div class="table-container">
 <table>
   <% for sight in @sights %>
@@ -20,6 +54,7 @@
     <td><a href="/countries/<%= sight.city.country.id %>"><%= sight.city.country.name %></a></td>
     <td>
 
+    <form action="/sights/update/<%= sight.id %>" method="post">
       <% if sight.status == "visited" %>
       <div class="custom-select-visited">
         <select name="status" id="status">
@@ -28,13 +63,17 @@
       <% else %>
       <div class="custom-select-bucket">
         <select name="status" id="status">
-        <option selected="selected" value="bucket" class="bucket">Bucket List</option>
+        <option selected="selected" value="bucket">Bucket List</option>
         <option value="visited">Visited</option>
       <% end %>
         </select>
-     </div>
+      </div>
+     <td><input class="btn btn--action" type='submit' value="Update"></td>
+
+     </form>
    </td>
   </tr>
   <% end %>
   </table>
+  </div>
 </div>

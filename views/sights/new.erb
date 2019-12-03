@@ -1,19 +1,25 @@
 <h1>Add a place</h1>
 
 <form action="/sights" method="post">
+  <div class = "form-field">
   <label for="name">Site Name:</label>
   <input type="text" name="name" id="name">
-
-  <label for="city">City</label>
-  <input type="text" name="city" id="city">
-
-  <label for="country">Country</label>
-  <input type="text" name="country" id="country">
-
-  <select name="status" id="status">
-    <option value="visited">Visited</option>
-    <option value="bucket">On my bucket list</option>
-  </select>
-
+  </div>
+  <div class = "form-field">
+    <label for="city">City</label>
+    <input type="text" name="city" id="city">
+  </div>
+  <div class = "form-field"
+    <label for="country">Country</label>
+    <input type="text" name="country" id="country">
+  </div>
+  <div class = "form-field"
+    <select name="status" id="status">
+      <option value="visited">Visited</option>
+      <option value="bucket">On my bucket list</option>
+    </select>
+  </div>
+  <div class = "form-field">
   <input class="btn btn--action" type='submit' value="Submit">
+  </div>
 </form>

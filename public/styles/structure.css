@@ -39,6 +39,14 @@ a:hover, a:active, a:focus {
   padding-top: 30px;
 }
 
+.left-panel{
+  float:left;
+}
+
+.right-panel{
+  float:right;
+}
+
 p {
   padding:0;
   margin:5px 10px;
@@ -86,7 +94,7 @@ ul {
 }
 
 main {
-  padding: 10px 20px 10px 20px;
+  padding: 0px 20px 10px 20px;
 }
 
 .flex {

@@ -83,3 +83,11 @@ post '/sights/:id/delete' do
   Sight.delete_by_id(params['id'].to_i)
   redirect to ("/sights")
 end
+
+post '/sights/update/:id' do # update
+  @update_sight = Sight.find_by_id(params['id'].to_i)
+  new_status = params['status']
+  @update_sight.status = new_status
+  @update_sight.update
+  redirect to ("/sights")
+end
