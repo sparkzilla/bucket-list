@@ -3,14 +3,12 @@ require( 'sinatra/contrib/all' )
 require_relative('../db/seeds')
 require_relative( '../models/sights' )
 require_relative( '../models/cities' )
-require_relative( '../models/map' )
 also_reload( '../models/*' )
 
 get '/sights' do
   @sights = Sight.all
   @url = ""
   @map_url = "https://www.mapquestapi.com/staticmap/v5/map?key=wGML8wgmXkCrOW0ymESQKWNbOUCNQI2D&&size=1390,375&type=light&locations="
-  p Map.url
   erb (:"sights/index")
 end
 
@@ -87,10 +85,10 @@ post '/sights/:id/delete' do
   redirect to ("/sights")
 end
 
-post '/sights/update/:id' do # update
+post '/sights/update_status/:id' do # update
   @update_sight = Sight.find_by_id(params['id'].to_i)
   new_status = params['status']
   @update_sight.status = new_status
   @update_sight.update
-  redirect to ("/sights")
+  redirect back
 end

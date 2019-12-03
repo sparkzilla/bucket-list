@@ -61,7 +61,7 @@
     <td><a href="/countries/<%= sight.city.country.id %>"><%= sight.city.country.name %></a></td>
     <td>
 
-    <form action="/sights/update/<%= sight.id %>" method="post">
+    <form action="/sights/update_status/<%= sight.id %>" method="post">
       <% if sight.status == "visited" %>
       <div class="custom-select-visited">
         <select name="status" id="status">
