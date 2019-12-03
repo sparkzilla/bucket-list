@@ -7,6 +7,8 @@ also_reload( '../models/*' )
 
 get '/sights' do
   @sights = Sight.all
+  @url = ""
+  @map_url = "https://www.mapquestapi.com/staticmap/v5/map?key=wGML8wgmXkCrOW0ymESQKWNbOUCNQI2D&&size=1390,500&type=light&defaultMarker=circle-end&locations="
   erb (:"sights/index")
 end
 

@@ -1,5 +1,13 @@
-<h1>All Sights</h1>
+<% for sight in @sights %>
+<% @url += sight.city.name + "%2C" + sight.city.country.name + "||"%>
+<% @url.gsub!(' ','%20') %>
+<% end %>
 
+<div class = "main_map">
+  <img src ="<%= @map_url %><%= @url %>">
+</div>
+
+<div class="table-container">
 <table>
   <% for sight in @sights %>
   <tr>
@@ -13,7 +21,7 @@
     <td><a href="/sights/status/bucket"><%= sight.status %></a></td>
     <% end %>
 
-  <td>  <select name="status" id="status">
+    <td>  <select name="status" id="status">
       <% if sight.status == "visited" %>
       <option selected="selected" value="visited">Visited</option>
       <option value="bucket">Bucket List</option>
@@ -22,9 +30,7 @@
       <option value="visited">Visited</option>
       <% end %>
     </select></td>
-
-
-
   </tr>
   <% end %>
-</table>
+  </table>
+</div>
