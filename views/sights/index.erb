@@ -1,5 +1,9 @@
 <% for sight in @sights %>
-<% @url += sight.city.name + "%2C" + sight.city.country.name + "||"%>
+<% if sight.status == "visited" %>
+<% @url += sight.city.name + "%2C" + sight.city.country.name + "|circle-end-V||"%>
+<% else %>
+<% @url += sight.city.name + "%2C" + sight.city.country.name + "|circle-start-B||"%>
+<% end %>
 <% @url.gsub!(' ','%20') %>
 <% end %>
 
