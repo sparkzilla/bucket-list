@@ -58,7 +58,38 @@ input[type="submit"] {
     outline: none;
 }
 
+.custom-select-none {
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #999999;
+    background-position-x: 95px;
+    background-position-y: 7px;
+}
+
+.custom-select-none select {
+    color:white;
+    font-size: 14px;
+    font-family: 'Open Sans', san-serif;
+    padding: 6px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.custom-select-nine select:focus {
+    outline: none;
+}
+
 :focus {
   outline-color: transparent;
   outline-style: none;
+}
+
+.form-field {
+  padding:5px;
 }

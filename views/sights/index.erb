@@ -1,8 +1,8 @@
 <% for sight in @sights %>
 <% if sight.status == "visited" %>
-<% @url += sight.city.name + "%2C" + sight.city.country.name + "|circle-end-V||"%>
+<% @url += sight.city.name + "%2C" + sight.city.country.name + "|circle-start-V||"%>
 <% else %>
-<% @url += sight.city.name + "%2C" + sight.city.country.name + "|circle-start-B||"%>
+<% @url += sight.city.name + "%2C" + sight.city.country.name + "|circle-end-B||"%>
 <% end %>
 <% @url.gsub!(' ','%20') %>
 <% end %>
@@ -30,10 +30,12 @@
       <input type="text" name="country" id="country">
     </div>
     <div class = "form-field">
-      <select name="status" id="status">
-        <option value="visited">Visited</option>
-        <option value="bucket">On my bucket list</option>
-      </select>
+      <div class="custom-select-none">
+        <select name="status" id="status">
+          <option value="visited">Visited</option>
+          <option value="bucket">On my bucket list</option>
+        </select>
+      </div>
     </div>
     <div class = "form-field">
     <input class="btn btn--action" type='submit' value="Submit">
