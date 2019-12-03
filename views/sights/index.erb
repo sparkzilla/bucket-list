@@ -10,6 +10,7 @@
 <div class = "main_map">
   <img src ="<%= @map_url %><%= @url %>">
 </div>
+<div style="clear:both;">
 
 <div class = "row">
   <div class = "left-panel">
@@ -17,29 +18,33 @@
   <h1>Add a place</h1>
 
   <form action="/sights" method="post">
-    <div class = "form-field">
-      <label for="name">Site Name:</label>
-      <input type="text" name="name" id="name">
-    </div>
-    <div class = "form-field">
-      <label for="city">City</label>
-      <input type="text" name="city" id="city">
-    </div>
-    <div class = "form-field">
-      <label for="country">Country</label>
-      <input type="text" name="country" id="country">
-    </div>
-    <div class = "form-field">
-      <div class="custom-select-none">
-        <select name="status" id="status">
-          <option value="visited">Visited</option>
-          <option value="bucket">On my bucket list</option>
-        </select>
-      </div>
-    </div>
-    <div class = "form-field">
-    <input class="btn btn--action" type='submit' value="Submit">
-    </div>
+  <table>
+    <tr>
+      <td><label for="name">Site Name:</label></td>
+      <td><input type="text" name="name" id="name"></td>
+    </tr>
+    <tr>
+      <td><label for="city">City</label></td>
+      <td><input type="text" name="city" id="city"></td>
+    <tr>
+      <td><label for="country">Country</label></td>
+      <td><input type="text" name="country" id="country"></td>
+    <tr>
+      <td></td>
+      <td>
+        <div class="custom-select-none">
+          <select name="status" id="status">
+            <option value="visited">Visited</option>
+            <option value="bucket">On my bucket list</option>
+          </select>
+        </div>
+      </td>
+    </tr>
+    <tr><td></td>
+        <td><input class="btn btn--action" type='submit' value="Submit">
+    </td>
+    </tr>
+  </table>
   </form>
   </div>
   <div class = "right-panel"
@@ -70,10 +75,12 @@
       <% end %>
         </select>
       </div>
-     <td><input class="btn btn--action" type='submit' value="Update"></td>
-
-     </form>
+     <td><input class="btn btn--action" type='submit' value="Update Status"></td>
+   </form>
    </td>
+   <td>    <form action="/sights/<%= sight.id %>/delete" method="POST">
+         <input class="btn btn--danger" type="submit" value="delete" />
+       </form></td>
   </tr>
   <% end %>
   </table>

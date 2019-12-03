@@ -108,3 +108,18 @@ main {
 #content {
   padding-left: 0px;
 }
+
+.main_map {
+  position: relative;
+  padding-bottom: 33%; /* ratio of image height to width */
+  height: 0;
+  z-index: -999;
+
+}
+
+.main-map img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}

@@ -62,7 +62,7 @@ class Country
     cities = SqlRunner.run(sql, values)
     return cities.map{|city| City.new(city)}
   end
-
+    
   #if country exists return id
 
   def self.find_by_name_return_id(name)

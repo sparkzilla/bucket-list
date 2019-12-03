@@ -3,6 +3,10 @@ input[type="submit"] {
   font-family: 'Open Sans', cursive;
 }
 
+input {
+    padding: 5px;
+}
+
 .custom-select-visited {
     width: 120px;
     border-radius: 3px;

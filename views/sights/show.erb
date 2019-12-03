@@ -1,11 +1,44 @@
-<h1>Sight</h1>
 
-<p><%= @sight.name %></p>
 
-<p><%= @sight.status %></p>
+<% if @sight.status == "visited" %>
+<% @url = @sight.city.name + "%2C" + @sight.city.country.name + "|circle-start-V||"%>
+<% else %>
+<% @url = @sight.city.name + "%2C" + @sight.city.country.name + "|circle-end-B||"%>
+<% end %>
+<% @url.gsub!(' ','%20') %>
 
-<p>
-    <form action="/sights/<%= @sight.id %>/delete" method="POST">
-      <input class="btn btn--danger" type="submit" value="delete" />
-    </form>
-</p>
+<div class = "main_map">
+  <img src ="<%= @map_url %><%= @url %>">
+</div>
+
+<div class="table-container">
+<table>
+  <tr><td><h1><%= @sight.name %></h1></td>
+    <td><a href="/cities/<%= @sight.city.id %>"><%= @sight.city.name %></a></td>
+    <td><a href="/countries/<%= @sight.city.country.id %>"><%= @sight.city.country.name %></a></td>
+    <td>
+
+    <form action="/sights/update/<%= @sight.id %>" method="post">
+      <% if @sight.status == "visited" %>
+      <div class="custom-select-visited">
+        <select name="status" id="status">
+        <option selected="selected" value="visited">Visited</option>
+        <option value="bucket">Bucket List</option>
+      <% else %>
+      <div class="custom-select-bucket">
+        <select name="status" id="status">
+        <option selected="selected" value="bucket">Bucket List</option>
+        <option value="visited">Visited</option>
+      <% end %>
+        </select>
+      </div>
+     <td><input class="btn btn--action" type='submit' value="Update Status"></td>
+   </form>
+   </td>
+   <td>    <form action="/sights/<%= @sight.id %>/delete" method="POST">
+         <input class="btn btn--danger" type="submit" value="delete" />
+       </form></td>
+  </tr>
+  </table>
+  </div>
+</div>
