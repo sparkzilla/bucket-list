@@ -1,18 +1,61 @@
 input[type="submit"] {
   text-transform: uppercase;
-  font-family: 'Special Elite', cursive;
+  font-family: 'Open Sans', cursive;
 }
 
-select {
- width: 150px;
- padding: 5px 35px 5px 5px;
- margin: 15px 0;
- font-size: 0.8em;
- -webkit-appearance: none;
- background: url('/images/hazard.png') 96% / 15% no-repeat papayawhip;
- font-family: 'Merriweather', serif;
- border: 1px solid #eee;
- display: block;
+.custom-select-visited {
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #339933;
+    background-position-x: 95px;
+    background-position-y: 7px;
+}
+
+.custom-select-visited select {
+    color:white;
+    font-size: 14px;
+    font-family: 'Open Sans', san-serif;
+    padding: 6px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.custom-select-visited select:focus {
+    outline: none;
+}
+
+
+.custom-select-bucket {
+
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #990000;
+    background-position-x: 95px;
+    background-position-y: 7px;
+}
+
+.custom-select-bucket select {
+    color:white;
+    font-size: 14px;
+    font-family: 'Open Sans', san-serif;
+    padding: 6px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.custom-select-bucket select:focus {
+    outline: none;
 }
 
 :focus {

@@ -25,15 +25,22 @@
     <td><a href="/sights/status/bucket"><%= sight.status %></a></td>
     <% end %>
 
-    <td>  <select name="status" id="status">
+    <td>
+
       <% if sight.status == "visited" %>
-      <option selected="selected" value="visited">Visited</option>
-      <option value="bucket">Bucket List</option>
+      <div class="custom-select-visited">
+        <select name="status" id="status">
+        <option selected="selected" value="visited">Visited</option>
+        <option value="bucket">Bucket List</option>
       <% else %>
-      <option selected="selected" value="bucket">Bucket List</option>
-      <option value="visited">Visited</option>
+      <div class="custom-select-bucket">
+        <select name="status" id="status">
+        <option selected="selected" value="bucket" class="bucket">Bucket List</option>
+        <option value="visited">Visited</option>
       <% end %>
-    </select></td>
+        </select>
+     </div>
+   </td>
   </tr>
   <% end %>
   </table>

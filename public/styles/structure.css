@@ -22,12 +22,12 @@ h1 {
 }
 
 a, a:link, a:visited {
-  color: #a2937e;
+  color: darkred;
   text-decoration: none;
 }
 
 a:hover, a:active, a:focus {
-  color: #c6e2ff;
+  color: #495C27;
 }
 
 .header-left{
@@ -36,6 +36,7 @@ a:hover, a:active, a:focus {
 
 .header-right{
   float:right;
+  padding-top: 30px;
 }
 
 p {
@@ -43,12 +44,27 @@ p {
   margin:5px 10px;
 }
 
-.logo p {
+.logo a{
   font-size:48px;
   font-family: 'Lobster', cursive;
   font-weight:200;
-  color: darkred;
+  color: darkred !important;
 }
+
+.logo a:hover {
+  font-size:48px;
+  font-family: 'Lobster', cursive;
+  font-weight:200;
+  color: darkred !important;
+}
+
+.logo a:visited  {
+  font-size:48px;
+  font-family: 'Lobster', cursive;
+  font-weight:200;
+  color: darkred !important;
+}
+
 
 nav {
   padding: 0px;
@@ -70,7 +86,7 @@ ul {
 }
 
 main {
-  padding: 25px;
+  padding: 10px 20px 10px 20px;
 }
 
 .flex {
