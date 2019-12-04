@@ -4,9 +4,9 @@
 
 The app allows a user to add, edit sights, and update the status of sights.
 
-The user inputs a sight, city and country. If an existing city or country exists, the system will assign the existing city_id or country_id to the record. However, as the fields are free input, there is no validation to stop a user adding variations ("UK", "United Kingdom" will generate separate results).
+The user inputs a sight, city and country all at one time, they cannot enter cities or countries independently.
 
-Note that the user cannot enter a city or country independently.
+If an existing city or country exists, the system will assign the existing city_id or country_id to the record. However, as the fields are free input, there is no validation to stop a user adding variations ("UK", "United Kingdom" will generate separate results).
 
 The user can update the status. I used the *redirect back* Sinatra command to redirect back to the page the update happened on.
 
@@ -27,3 +27,15 @@ The Map API is not that accurate, so sometimes in detail views the location is i
 Select boxes for status(visited/bucket) are styled to change colour based on the selection.
 
 I don't understand flex, so I did not use it. I will learn it before the next project.
+
+**Issues**
+
+The long *map_url* in the controllers should be put in a class. I tried this, but it did not work.
+
+Validation for the input form (in the /sights/ POST controller) should be moved into a separate function.
+
+**Potentials**
+
+I wanted to add images for each of the site, city and country detail pages, using Google Places API, but it required the http-get gem. I may give it a go outside the project.
+
+Update to Google Maps API, to create interactive maps, would require javascript.
