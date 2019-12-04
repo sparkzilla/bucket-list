@@ -1,10 +1,12 @@
-#Mark's Bucket List App#
+# Mark's Bucket List App #
 
 **User Input**
 
 The app allows a user to add, edit sights, and update the status of sights.
 
-The user inputs a sight, city and country. If an existing city or country exists, the system will assign the existing city_id or country_id to the record. However, as the fields are free input, there is no validation to stop a user adding variations ("UK", "United Kingdom" will generate separate results)
+The user inputs a sight, city and country. If an existing city or country exists, the system will assign the existing city_id or country_id to the record. However, as the fields are free input, there is no validation to stop a user adding variations ("UK", "United Kingdom" will generate separate results).
+
+Note that the user cannot enter a city or country independently.
 
 The user can update the status. I used the *redirect back* Sinatra command to redirect back to the page the update happened on.
 
@@ -24,4 +26,4 @@ The Map API is not that accurate, so sometimes in detail views the location is i
 
 Select boxes for status(visited/bucket) are styled to change colour based on the selection.
 
-I don't understand flex, so I did not use it. I will learn it before the next project. 
+I don't understand flex, so I did not use it. I will learn it before the next project.
