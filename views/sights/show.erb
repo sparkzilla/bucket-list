@@ -1,9 +1,9 @@
 
 
 <% if @sight.status == "visited" %>
-<% @url = @sight.name + @sight.city.name + "%2C" + @sight.city.country.name + "|circle-start-V||"%>
+<% @url = @sight.name + "%2C" + @sight.city.name + "%2C" + @sight.city.country.name + "|circle-start-V||"%>
 <% else %>
-<% @url = @sight.name + @sight.city.name + "%2C" + @sight.city.country.name + "|circle-end-B||"%>
+<% @url = @sight.name + "%2C" + @sight.city.name + "%2C" + @sight.city.country.name + "|circle-end-B||"%>
 <% end %>
 <% @url.gsub!(' ','%2B') %>
 

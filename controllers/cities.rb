@@ -2,6 +2,7 @@ require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative('../db/seeds')
 require_relative( '../models/cities' )
+require_relative( '../models/sights' )
 also_reload( '../models/*' )
 
 get '/cities' do
