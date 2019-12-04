@@ -1,6 +1,10 @@
 <% for sight in @city.sights %>
-<% @url += sight.name + "%2C" + sight.city.name + "%2C" + sight.city.country.name + "|circle-start-V||"%>
-<% @url.gsub!(' ','%20') %>
+<% if sight.status == "visited" %>
+<% @url += sight.name + "%2C" + sight.city.name + "%2C"  + "|circle-start-V||"%>
+<% else %>
+<% @url += sight.name + "%2C" + sight.city.name + "%2C" + "|circle-end-B||"%>
+<% end %>
+<% @url.gsub!(' ','%2B') %>
 <% end %>
 
 <div class = "main_map">

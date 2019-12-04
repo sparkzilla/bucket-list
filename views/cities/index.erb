@@ -3,7 +3,7 @@
 <% @url += city.name + "%2C" + city.country.name + "|circle-white||"%>
 
 <% end %>
-<% @url.gsub!(' ','%20') %>
+<% @url.gsub!(' ','%2B') %>
 
 <div class = "main_map">
   <img src ="<%= @map_url %><%= @url %>">
