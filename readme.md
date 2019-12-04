@@ -36,6 +36,8 @@ Validation for the input form (in the /sights/ POST controller) should be moved 
 
 Should probably do the URL encoding as a separate function
 
+The sight update only works properly for the site name. This is because the system is supposed to check for existing data. If the user changes "London" to "Paris" then if Paris is already in the db, the sight should be assigned Paris's city_id. However, I didn't have enough time to get it working.
+
 **Potentials**
 
 I wanted to add images for each of the site, city and country detail pages, using Google Places API, but it required the http-get gem. I may give it a go outside the project.

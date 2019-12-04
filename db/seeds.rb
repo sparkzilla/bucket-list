@@ -28,6 +28,11 @@ country4 = Country.new({
 })
 country4.save()
 
+country5 = Country.new({
+  'name' => 'India',
+})
+country5.save()
+
 
 city1 = City.new({
   'name' => 'Tokyo',
@@ -59,6 +64,12 @@ city5 = City.new({
   })
 city5.save()
 
+city6 = City.new({
+  'name' => 'Delhi',
+  'country_id' => country5.id
+  })
+city6.save()
+
 sight1 = Sight.new({
   'name' => 'Tokyo Tower',
   'status' => 'visited',
@@ -88,9 +99,9 @@ sight4 = Sight.new({
 sight4.save()
 
 sight5 = Sight.new({
-  'name' => 'Skytree',
+  'name' => 'Taj Mahal',
   'status' => 'bucket',
-  'city_id' => city1.id
+  'city_id' => city6.id
 })
 sight5.save()
 
