@@ -11,34 +11,40 @@
   <img src ="<%= @map_url %><%= @url %>">
 </div>
 
-<div class="table-container">
-<table>
-  <tr><td><h1><%= @sight.name %></h1></td>
-    <td><a href="/cities/<%= @sight.city.id %>"><%= @sight.city.name %></a></td>
-    <td><a href="/countries/<%= @sight.city.country.id %>"><%= @sight.city.country.name %></a></td>
-    <td>
 
-    <form action="/sights/update_status/<%= @sight.id %>" method="post">
-      <% if @sight.status == "visited" %>
-      <div class="custom-select-visited">
-        <select name="status" id="status">
-        <option selected="selected" value="visited">Visited</option>
-        <option value="bucket">Bucket List</option>
-      <% else %>
-      <div class="custom-select-bucket">
-        <select name="status" id="status">
-        <option selected="selected" value="bucket">Bucket List</option>
-        <option value="visited">Visited</option>
-      <% end %>
-        </select>
-      </div>
-     <td><input class="btn btn--action" type='submit' value="Update Status"></td>
-   </form>
-   </td>
-   <td>    <form action="/sights/<%= @sight.id %>/delete" method="POST">
-         <input class="btn btn--danger" type="submit" value="delete" />
-       </form></td>
-  </tr>
-  </table>
-  </div>
+  <div class="left-panel"><h1>Edit <%= @sight.name %></h1>
+
+  <form action="/sights/<%=@sight.id%>" method="post">
+    <table>
+      <tr>
+        <td><label for="name">Site Name:</label></td>
+        <td><input type="text" name="name" id="name" value="<%= @sight.name %>"></td>
+        <td><label for="city">City</label></td>
+        <td><input type="text" name="city" id="city" value="<%= @sight.city.name %>"></td>
+        <td><label for="country">Country</label></td>
+        <td><input type="text" name="country" id="country" value="<%= @sight.city.country.name %>"></td>
+        <td></td>
+        <td>
+          <% if @sight.status == "visited" %>
+          <div class="custom-select-visited">
+            <select name="status" id="status">
+            <option selected="selected" value="visited">Visited</option>
+            <option value="bucket">Bucket List</option>
+          <% else %>
+          <div class="custom-select-bucket">
+            <select name="status" id="status">
+            <option selected="selected" value="bucket">Bucket List</option>
+            <option value="visited">Visited</option>
+          <% end %>
+            </select>
+          </div>
+        </td>
+        <td><input class="btn btn--action" type='submit' value="Update">
+      </td>
+      </tr>
+    </table>
+    </form>
+    </div>
+
+
 </div>

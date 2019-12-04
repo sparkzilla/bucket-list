@@ -110,6 +110,11 @@ post '/sights/:id' do # update
   if (country_id == false)
     new_country = {"name" => "#{country_param}"}
     country = Country.new(new_country)
+    country.save
+    country_id = country.id.to_s
+  else
+    update_country = {"name" => "#{country_param}"}
+    country = Country.new(update_country)
     country.update
     country_id = country.id.to_s
   end
@@ -126,16 +131,18 @@ post '/sights/:id' do # update
       "country_id" => country_id
     }
     city = City.new(new_city)
-    city.update
+    city.save
     city_id = city.id.to_s
   end
 
 
   status_param = params[:status]
   sight_name_param = params[:name]
+  sight_id = params[:id].to_i
+
 
   updated_sight = {
-    "id" =>  params['id'].to_i,
+    "id" =>  sight_id,
     "name" => "#{sight_name_param}",
     "status" => "#{status_param}",
     "city_id" => city_id
