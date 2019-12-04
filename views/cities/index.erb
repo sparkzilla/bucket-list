@@ -1,6 +1,6 @@
 
-<% for cities in @cities %>
-<% @url = sight.city.name + "%2C" + sight.city.country.name + "|circle-start-V||"%>
+<% for city in @cities %>
+<% @url += city.name + "%2C" + city.country.name + "|circle-white||"%>
 
 <% end %>
 <% @url.gsub!(' ','%20') %>
@@ -8,3 +8,10 @@
 <div class = "main_map">
   <img src ="<%= @map_url %><%= @url %>">
 </div>
+
+<h1> All the cities</h1>
+
+<% for city in @cities %>
+<p><a href="/cities/<%=city.id%>"><%= city.name %></a></p>
+
+<% end %>

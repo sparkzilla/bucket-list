@@ -7,9 +7,46 @@
   <img src ="<%= @map_url %><%= @url %>">
 </div>
 
+<h1>Sights in <%=sight.city.name %></h1>
 
-<p>
-    <form action="/cities/<%= @city.id %>/delete" method="POST">
-      <input class="btn btn--danger" type="submit" value="delete" />
-    </form>
-</p>
+
+<div class="table-container">
+<table>
+  <% for sight in @city.sights %>
+  <tr>
+    <td><a href="/sights/<%= sight.id %>"><%= sight.name %></a></td>
+    <td><a href="/cities/<%= sight.city.id %>"><%= sight.city.name %></a></td>
+    <td><a href="/countries/<%= sight.city.country.id %>"><%= sight.city.country.name %></a></td>
+    <td>
+
+    <form action="/sights/update_status/<%= sight.id %>" method="post">
+      <% if sight.status == "visited" %>
+      <div class="custom-select-visited">
+        <select name="status" id="status">
+        <option selected="selected" value="visited">Visited</option>
+        <option value="bucket">Bucket List</option>
+      <% else %>
+      <div class="custom-select-bucket">
+        <select name="status" id="status">
+        <option selected="selected" value="bucket">Bucket List</option>
+        <option value="visited">Visited</option>
+      <% end %>
+        </select>
+      </div>
+     <td><input class="btn btn--action" type='submit' value="Update Status"></td>
+   </form>
+   </td>
+   <td>    <form action="/sights/<%= sight.id %>/delete" method="POST">
+         <input class="btn btn--danger" type="submit" value="delete" />
+       </form></td>
+  </tr>
+  <% end %>
+  </table>
+  </div>
+
+  <div class="delete_section">
+      <form action="/cities/<%= @city.id %>/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete city">
+        <p class="warning"> Warning! Deleting a city will delete all the sights in that city.</p>
+      </form>
+  </div>
