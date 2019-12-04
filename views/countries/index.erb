@@ -1,11 +1,16 @@
+<% for country in @countries %>
+<% @url += country.name + "%2C" + country.name + "|circle-white||"%>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-  <% for country in @countries %>
-  <tr>
-    <td><a href="/countries/<%= country.id %>"><%= country.name %></a></td>
-  </tr>
-  <% end %>
-</table>
+<% end %>
+<% @url.gsub!(' ','%20') %>
+
+<div class = "main_map">
+  <img src ="<%= @map_url %><%= @url %>">
+</div>
+
+<h1> All the Countries</h1>
+
+<% for country in @countries%>
+<p><a href="/countries/<%=country.id%>"><%= country.name %></a></p>
+
+<% end %>

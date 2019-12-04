@@ -6,6 +6,8 @@ also_reload('../models/*')
 
 get '/countries' do
   @countries= Country.all()
+  @url = ""
+  @map_url = "https://www.mapquestapi.com/staticmap/v5/map?key=wGML8wgmXkCrOW0ymESQKWNbOUCNQI2D&&size=1390,375&type=light&locations="
   erb (:"countries/index")
 end
 
@@ -16,6 +18,8 @@ end
 
 get '/countries/:id' do
   @country = Country.find_by_id(params['id'].to_i)
+  @url = ""
+  @map_url = "https://www.mapquestapi.com/staticmap/v5/map?key=wGML8wgmXkCrOW0ymESQKWNbOUCNQI2D&&size=1390,375&type=light&locations="
   erb(:"countries/show")
 end
 
