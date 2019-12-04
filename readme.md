@@ -34,6 +34,8 @@ The long *map_url* in the controllers should be put in a class. I tried this, bu
 
 Validation for the input form (in the /sights/ POST controller) should be moved into a separate function.
 
+Should probably do the URL encoding as a separate function
+
 **Potentials**
 
 I wanted to add images for each of the site, city and country detail pages, using Google Places API, but it required the http-get gem. I may give it a go outside the project.
