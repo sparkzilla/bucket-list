@@ -1,5 +1,10 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
-  background: #BDD5EA url('/images/background.jpg');
+  background: #BDD5EA url('');
   background-size: 100%;
   background-repeat: no-repeat;
   color: #222222;
@@ -41,6 +46,7 @@ a:hover, a:active, a:focus {
 
 .left-panel{
   float:left;
+  padding-left: 30px;
 }
 
 .right-panel{
@@ -95,7 +101,18 @@ ul {
 
 main {
   padding: 0px 20px 10px 20px;
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
 }
+
+.footer,
+.push {
+  height: 50px;
+}
+
 
 .flex {
   display: flex;
@@ -125,6 +142,18 @@ main {
 }
 
 .warning {
+  display:inline;
   color:darkred;
   font-style: italic;
+}
+
+.delete_section{
+  margin-top:30px;
+}
+
+
+footer {
+  color:white;
+  background-color: #2f5a6b;
+  height:30px;
 }
