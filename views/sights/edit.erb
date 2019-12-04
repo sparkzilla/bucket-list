@@ -1,0 +1,38 @@
+<h1>Edit <%= @sight.name %></h1>
+
+<form action="/sights/<%=@sight.id%>" method="post">
+  <table>
+    <tr>
+      <td><label for="name">Site Name:</label></td>
+      <td><input type="text" name="name" id="name" value="<%= @sight.name %>"></td>
+    </tr>
+    <tr>
+      <td><label for="city">City</label></td>
+      <td><input type="text" name="city" id="city" value="<%= @sight.city.name %>"></td>
+    <tr>
+      <td><label for="country">Country</label></td>
+      <td><input type="text" name="country" id="country" value="<%= @sight.city.country.name %>"></td>
+    <tr>
+      <td></td>
+      <td>
+        <% if @sight.status == "visited" %>
+        <div class="custom-select-visited">
+          <select name="status" id="status">
+          <option selected="selected" value="visited">Visited</option>
+          <option value="bucket">Bucket List</option>
+        <% else %>
+        <div class="custom-select-bucket">
+          <select name="status" id="status">
+          <option selected="selected" value="bucket">Bucket List</option>
+          <option value="visited">Visited</option>
+        <% end %>
+          </select>
+        </div>
+      </td>
+    </tr>
+    <tr><td></td>
+        <td><input class="btn btn--action" type='submit' value="Submit">
+    </td>
+    </tr>
+  </table>
+  </form>

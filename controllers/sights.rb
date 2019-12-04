@@ -85,10 +85,63 @@ post '/sights/:id/delete' do
   redirect to ("/sights")
 end
 
-post '/sights/update_status/:id' do # update
+#UPDATE STATUS ONLY
+
+post '/sights/update_status/:id' do # update_status
   @update_sight = Sight.find_by_id(params['id'].to_i)
   new_status = params['status']
   @update_sight.status = new_status
   @update_sight.update
   redirect back
 end
+
+#UPDATE ALL
+
+get '/sights/:id/edit' do # edit
+  @sight = Sight.find_by_id(params['id'].to_i)
+  erb(:"sights/edit")
+end
+
+post '/sights/:id' do # update
+
+
+  country_param = params['country']
+  country_id = Country.find_by_name_return_id(country_param)
+  if (country_id == false)
+    new_country = {"name" => "#{country_param}"}
+    country = Country.new(new_country)
+    country.update
+    country_id = country.id.to_s
+  end
+
+  #if city exixists, return city_id
+
+  p country_id.to_s
+
+  city_param = params['city']
+  city_id = City.find_by_name_return_id(city_param)
+  if (city_id == false)
+    new_city = {
+      "name" => "#{city_param}",
+      "country_id" => country_id
+    }
+    city = City.new(new_city)
+    city.update
+    city_id = city.id.to_s
+  end
+
+
+  status_param = params[:status]
+  sight_name_param = params[:name]
+
+  updated_sight = {
+    "id" =>  params['id'].to_i,
+    "name" => "#{sight_name_param}",
+    "status" => "#{status_param}",
+    "city_id" => city_id
+  }
+
+  sight = Sight.new(updated_sight)
+  sight.update
+  redirect to("/sights")
+  end
